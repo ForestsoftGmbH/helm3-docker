@@ -17,6 +17,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag forestsoft/helm3-docker
     - name: Login
-      run: echo -n "${{ secrets.DOCKER_PASSWORD }}" | docker login ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      run: echo -n "${{ secrets.DOCKER_PASSWORD }}" | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Push Image
       run: docker push forestsoft/helm3-docker
