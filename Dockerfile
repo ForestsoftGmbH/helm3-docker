@@ -13,5 +13,5 @@ RUN apt-get update && apt-get install curl make git -y && \
     
 RUN helm plugin install https://github.com/databus23/helm-diff && \
     helm repo add forestsoft https://Forestsoft-de.github.io/helm-charts/charts \
-    rm -Rf /var/lib/apt/lists/
+    rm -rf /var/lib/apt/lists/
     
