@@ -4,7 +4,7 @@ ENV HELM_VERSION=3.8.2
 ENV RELEASE_ROOT="https://get.helm.sh"
 ENV RELEASE_FILE="helm-v${HELM_VERSION}-linux-amd64.tar.gz"
 
-RUN apt-get update && apt-get install curl git -y && \
+RUN apt-get update && apt-get install curl make git -y && \
     curl ${RELEASE_ROOT}/${RELEASE_FILE} | tar xvz && \
     mv linux-amd64/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
@@ -12,4 +12,6 @@ RUN apt-get update && apt-get install curl git -y && \
     chmod +x /usr/local/bin/kubectl
     
 RUN helm plugin install https://github.com/databus23/helm-diff && \
-    helm repo add forestsoft https://Forestsoft-de.github.io/helm-charts/charts
+    helm repo add forestsoft https://Forestsoft-de.github.io/helm-charts/charts \
+    rm -Rf /var/lib/apt/lists/
+    
