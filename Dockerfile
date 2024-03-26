@@ -12,6 +12,6 @@ RUN apt-get update && apt-get install curl make git -y && \
     chmod +x /usr/local/bin/kubectl
     
 RUN helm plugin install https://github.com/databus23/helm-diff && \
-    helm repo add forestsoft https://Forestsoft-de.github.io/helm-charts/charts \
-    rm -rf /var/lib/apt/lists/
+    helm repo add forestsoft https://Forestsoft-de.github.io/helm-charts/charts && \
+    rm -Rf /var/lib/apt/lists/
     
